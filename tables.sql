@@ -16,5 +16,25 @@ CREATE TABLE Course (
     year INT NOT NULL
 );
 
+-- Create Enrollment table
+CREATE TABLE Enrollment (
+    student_id INT NOT NULL,
+    course_id INT NOT NULL,
+    PRIMARY KEY (student_id, course_id),
+    FOREIGN KEY (student_id) REFERENCES Student(student_id),
+    FOREIGN KEY (course_id) REFERENCES Course(course_id)
+);
+
+--Create Distribution table
+CREATE TABLE Distribution (
+    distribution_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    course_id INT NOT NULL,
+    category VARCHAR(30) NOT NULL,
+    percent INT NOT NULL,
+    FOREIGN KEY (course_id) REFERENCES Course(course_id)
+);
+
+
+
 
 
