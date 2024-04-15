@@ -34,6 +34,23 @@ CREATE TABLE Distribution (
     FOREIGN KEY (course_id) REFERENCES Course(course_id)
 );
 
+--Create Assignment table
+CREATE TABLE Assignment (
+    assignment_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    distribution_id INT NOT NULL,
+    instance INT NOT NULL,
+    points_possoible INT DEFAULT 0 NOT NULL,
+    FOREIGN KEY (distribution_id) REFERENCES Distribution(distribution_id)
+);
+
+--Create Grade table
+CREATE TABLE Grade (
+    student_id INT NOT NULL,
+    assignment_id INT NOT NULL,
+    points_earned INT DEFAULT 0 NOT NULL,
+    FOREIGN KEY (student_id) REFERENCES Student(student_id),
+    FOREIGN KEY (assignment_id) REFERENCES Assignment(assignment_id)
+);
 
 
 
