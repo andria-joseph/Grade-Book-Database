@@ -235,3 +235,13 @@ INSERT INTO Grade (student_id, assignment_id, points_earned) VALUES
 -- SET points_earned = points_earned + 2
 -- WHERE assignment_id = 1; 
 
+--TASK10:Add 2 points just to those students whose last name contains a ‘Q’.
+-- UPDATE Grade
+-- SET points_earned = points_earned - 2
+-- WHERE student_id IN (
+--     SELECT student_id
+--     FROM Student
+--     WHERE last_name LIKE '%Q%'
+-- );
+
+
