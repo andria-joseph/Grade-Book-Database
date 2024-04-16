@@ -72,20 +72,20 @@ INSERT INTO Student (student_id, first_name, last_name, major) VALUES
 (1498, 'Fatima', 'Mohammed', 'Computer Science');
 
 --Insert values into Course table
-INSERT INTO Course (department, course_number, course_name, semester, year) VALUES
-('Computer Science', 101, 'Introduction to Computer Science', 'Fall', 2023),
-('Computer Engineering', 201, 'Operating Systems', 'Fall', 2023),
-('Computer Science', 102, 'Software Engineering', 'Spring', 2024),
-('Computer Engineering', 203, 'Introduction to Digital Systems', 'Spring', 2024),
-('Mathematics', 304, 'Data Science', 'Spring', 2024);
+INSERT INTO Course (course_id, department, course_number, course_name, semester, year) VALUES
+(101, 'Computer Science', 101, 'Introduction to Computer Science', 'Fall', 2023),
+(201, 'Computer Engineering', 201, 'Operating Systems', 'Fall', 2023),
+(102, 'Computer Science', 102, 'Software Engineering', 'Spring', 2024),
+(203, 'Computer Engineering', 203, 'Introduction to Digital Systems', 'Spring', 2024),
+(304, 'Mathematics', 304, 'Data Science', 'Spring', 2024);
 
 --Insert values into Enrollment table
 INSERT INTO Enrollment (student_id, course_id) VALUES
-(1234, 1), (3395, 1), (8765, 1), (4211, 1), (1934, 1), (8109, 1), 
-(3191, 2), (4321, 2), (5566, 2), (3395, 2), (1498, 2),
-(1234, 3), (4321, 3), (5566, 3), (3191, 3), (3395, 3), (1498, 3), (5437, 3),
-(4321, 4), (5566, 4), (5437, 4), (1934, 4),
-(5678, 5), (1234, 5), (3395, 5), (5437, 5), (1498, 5)
+(1234, 101), (3395, 101), (8765, 101), (4211, 101), (1934, 101), (8109, 101), 
+(3191, 201), (4321, 201), (5566, 201), (3395, 201), (1498, 201),
+(1234, 102), (4321, 102), (5566, 102), (3191, 102), (3395, 102), (1498, 102), (5437, 102),
+(4321, 203), (5566, 203), (5437, 203), (1934, 203),
+(5678, 304), (1234, 304), (3395, 304), (5437, 304), (1498, 304)
 
 
 --Insert values into Distribution table
