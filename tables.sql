@@ -184,3 +184,48 @@ INSERT INTO Grade (student_id, assignment_id, points_earned) VALUES
 (5437, 1, 93), (5437, 2, 93), (5437, 18, 99), (5437, 3, 93), (5437, 4, 93), (5437, 5, 93), (5437, 6, 93), (5437, 7, 93), (5437, 8, 93), (5437, 9, 93), (5437, 10, 93),
 -- Fatima Mohammed
 (1498, 1, 100), (1498, 2, 93), (1498, 18, 99), (1498, 3, 93), (1498, 4, 93), (1498, 5, 93);
+
+
+--TASK4 4: 
+-- --Compute average score of an assignment
+-- SELECT AVG(points_earned) AS average_score
+-- FROM Grade
+-- WHERE assignment_id = <assignment_id>;
+
+-- -- Compute highest score of an assignment
+-- SELECT MAX(points_earned) AS highest_score
+-- FROM Grade
+-- WHERE assignment_id = <assignment_id>;
+
+-- -- Compute lowest score of an assignment
+-- SELECT MIN(points_earned) AS lowest_score
+-- FROM Grade
+-- WHERE assignment_id = <assignment_id>;
+
+
+--TASK5: List all of the students in a given course
+-- SELECT s.student_id, s.first_name, s.last_name
+-- FROM Student s
+-- INNER JOIN Enrollment e ON s.student_id = e.student_id
+-- WHERE e.course_id = <course_id>;
+
+
+--TASK6: LList all of the students in a course and all of their scores on every assignment;
+-- SELECT s.student_id, s.first_name, s.last_name, g.assignment_id, g.points_earned
+-- FROM Student s
+-- INNER JOIN Grade g ON s.student_id = g.student_id
+-- INNER JOIN Assignment a ON g.assignment_id = a.assignment_id
+-- WHERE a.distribution_id IN (
+--     SELECT distribution_id
+--     FROM Distribution
+--     WHERE course_id = <course_id>
+-- );
+
+--TASK7: Add an assignment to a course;
+-- INSERT INTO Assignment (distribution_id, instance, points_possible)
+-- VALUES (<distribution_id>, <instance>, <points_possible>);
+
+--TASK8: Add a student to a course: Change the percentages of the categories for a course;
+-- UPDATE Distribution
+-- SET percentage = <new_percentage>
+-- WHERE course_id = <course_id> AND category = '<category>';
