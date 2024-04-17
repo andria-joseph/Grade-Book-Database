@@ -24,4 +24,3 @@ The submission is based on the ER diagram below:
 
 ![ERdiagram](https://github.com/andria-joseph/Grade-Book-Database/assets/104771992/3b206cfd-f02e-4aef-a8a5-9c79d7303f2c)
 
-The Source code is and commands for tasks 4-12 are in tables.sql file.
