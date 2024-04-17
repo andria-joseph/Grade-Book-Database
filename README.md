@@ -18,6 +18,8 @@ You are asked to implement a grade book to keep track student grades for several
 11. Compute the grade for a student;
 12. Compute the grade for a student, where the lowest score for a given category is dropped.
 
+
+The Source code is and commands for tasks 4-12 are in tables.sql file.
 The submission is based on the ER diagram below:
 
 ![ERdiagram](https://github.com/andria-joseph/Grade-Book-Database/assets/104771992/3b206cfd-f02e-4aef-a8a5-9c79d7303f2c)
