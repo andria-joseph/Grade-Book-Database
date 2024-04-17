@@ -225,7 +225,7 @@ INSERT INTO Grade (student_id, assignment_id, points_earned) VALUES
 -- INSERT INTO Assignment (distribution_id, instance, points_possible)
 -- VALUES (<distribution_id>, <instance>, <points_possible>);
 
---TASK8: Add a student to a course: Change the percentages of the categories for a course;
+--TASK8: Change the percentages of the categories for a course;
 -- UPDATE Distribution
 -- SET percentage = <new_percentage>
 -- WHERE course_id = <course_id> AND category = '<category>';
@@ -235,13 +235,35 @@ INSERT INTO Grade (student_id, assignment_id, points_earned) VALUES
 -- SET points_earned = points_earned + 2
 -- WHERE assignment_id = 1; 
 
---TASK10:Add 2 points just to those students whose last name contains a ‘Q’.
+--TASK10: Add 2 points just to those students whose last name contains a ‘Q’.
 -- UPDATE Grade
--- SET points_earned = points_earned - 2
--- WHERE student_id IN (
---     SELECT student_id
---     FROM Student
---     WHERE last_name LIKE '%Q%'
+-- SET points_earned = points_earned + 2
+-- WHERE Grade.student_id IN (
+-- SELECT student_id
+-- FROM Student
+-- WHERE CHARINDEX('Q', last_name) > 0
 -- );
 
+--TASK11: Compute the grade for a student
+-- SELECT AVG(points_earned) AS student
+-- FROM Grade
+-- WHERE student_id = 1234;
 
+--TASK12: Compute the grade for a student, where the lowest score for a given category is dropped.
+-- WITH RankedScores AS (
+-- SELECT
+-- student_id,
+-- points_earned,
+-- ROW_NUMBER() OVER (PARTITION BY student_id ORDER BY points_earned ASC) AS rank
+-- FROM
+-- Grade
+-- )
+-- SELECT
+-- student_id,
+-- AVG(points_earned) AS grade
+-- FROM
+-- RankedScores
+-- WHERE
+-- rank > 1 -- Exclude the lowest score for each category
+-- GROUP BY
+-- student_id;
